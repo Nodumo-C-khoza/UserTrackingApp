@@ -29,6 +29,16 @@ export class UserDetailFormComponent implements OnInit {
     //   this.updateRecord(form);
   }
 
+  insertRecord(form: NgForm) {
+    this.service.postUserDetail().subscribe(
+      res => {
+        this.resetForm(form);
+        this.service.refreshList();
+      },
+      err => { console.log(err); }
+    );
+  }
+
   resetForm(form: NgForm) {
     form.form.reset();
     this.service.formData = new UserDetail();
