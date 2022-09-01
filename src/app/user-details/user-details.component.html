@@ -1,0 +1,29 @@
+<div class="jumbtron py-3">
+    <h1 class="display-d text-center">User Tracking Register</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-user-detail-form></app-user-detail-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let us of service.list">
+                <td (click)="populateForm(us)">{{us.FirstName}}</td>
+                <td (click)="populateForm(us)">{{us.LastName}}</td>
+                <td (click)="populateForm(us)">{{us.Email}}</td>
+
+        </tr>
+            </tbody>
+    </table>
+    </div>
+</div>

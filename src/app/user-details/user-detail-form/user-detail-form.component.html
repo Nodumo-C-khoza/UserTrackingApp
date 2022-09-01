@@ -1,0 +1,46 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="paymentDetailId" [value]="service.formData.UserId" />
+    <div class="form-group">
+        <label>First Name</label>
+        <input class="form-control form-control-lg" placeholder="Full Name" name="FirstName"
+            #FirstName="ngModel" [(ngModel)]="service.formData.FirstName"
+            required [class.invalid]="FirstName.invalid && FirstName.touched">
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input class="form-control form-control-lg" placeholder="LastName" name="LastName"
+            #LastName="ngModel" [(ngModel)]="service.formData.LastName"
+            required  [class.invalid]="LastName.invalid && LastName.touched">
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input class="form-control form-control-lg" placeholder="Email" name="Email"
+            #Email="ngModel" [(ngModel)]="service.formData.Email"
+            required  [class.invalid]="Email.invalid && Email.touched">
+    </div>
+
+    <div class="form-group">
+        <label>UserName</label>
+        <input class="form-control form-control-lg" placeholder="UserName" name="UserName"
+            #UserName="ngModel" [(ngModel)]="service.formData.UserName"
+            required  [class.invalid]="UserName.invalid && UserName.touched">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Password</label>
+            <input type="password" class="form-control form-control-lg" placeholder="Passwords" name="Passwords"
+                #Passwords="ngModel" [(ngModel)]="service.formData.Passwords"
+                required maxlength="16" minlength="6" [class.invalid]="Passwords.invalid && Passwords.touched">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Mobile</label>
+            <input class="form-control form-control-lg" placeholder="0670896733" name="Mobile"
+                #Mobile="ngModel" [(ngModel)]="service.formData.Mobile"
+                required maxlength="15" minlength="10" [class.invalid]="Mobile.invalid && Mobile.touched">
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>
