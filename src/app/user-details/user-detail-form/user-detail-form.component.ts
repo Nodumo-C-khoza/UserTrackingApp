@@ -3,6 +3,7 @@ import { UserDetailService } from 'src/app/shared/user-detail.service';
 import { NgForm } from '@angular/forms';
 
 import { UserDetail } from 'src/app/shared/user-detail.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-detail-form',
@@ -10,16 +11,19 @@ import { UserDetail } from 'src/app/shared/user-detail.model';
   styleUrls: []
 })
 export class UserDetailFormComponent implements OnInit {
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 //dependency injection
-  constructor(public service: UserDetailService) { }
+  constructor(public service: UserDetailService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    
   }
 
   onSubmit(form: NgForm) {
     this.service.postUserDetail().subscribe(
-      res=>{
-        this.resetForm(form);
+      response=>{
+        this.resetForm(form.value);
+        console.log(response);
       },
       err=> {console.log()}
     );

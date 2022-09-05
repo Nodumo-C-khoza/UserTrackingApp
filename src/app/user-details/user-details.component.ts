@@ -13,6 +13,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.refreshList();
+    console.log(this.service);
   }
 
   populateForm(selectedRecord: UserDetail) {

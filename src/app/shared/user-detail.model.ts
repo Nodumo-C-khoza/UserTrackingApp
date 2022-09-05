@@ -1,11 +1,11 @@
 export class UserDetail {
-    UserId:number =0;
-    FirstName:string='';
-    LastName:string='';
-    Email:string ='';
-    UserName: string='';
-    Passwords: string='';
-    Mobile: string='';
+    userId:number =0;
+    fullName:string='';
+    email:string ='';
+    password: string='';
+    mobile: string='';
     //Roles: string='';
 
 }
+
+
